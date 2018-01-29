@@ -9,6 +9,7 @@ import warnings
 
 
 def _price_to_int(s):
+    s = ''.join(str(x) for x in s)
     return int(re.sub('[$,]', '', s))
 
 
