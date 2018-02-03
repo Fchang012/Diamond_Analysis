@@ -1,0 +1,3 @@
+#back-to-top-button{position:fixed;-webkit-transform:translateZ(0);bottom:2.28571em;width:3.21429em;height:3.5em;padding:.42857em;background-color:#efefef;-webkit-border-radius:.14286em;-moz-border-radius:.14286em;border-radius:.14286em;text-align:center;z-index:150;border:1px solid #888888}#back-to-top-button.hidden{display:none}#back-to-top-button button{width:100%;height:100%;font-size:.85714em;line-height:20px}#back-to-top-button button:before{font-family:"icon-font";display:block;content:"";font-size:1.42857em;margin-top:-8px;margin-bottom:-2px;text-align:center;color:#4A4A4A}
+
+/*# sourceMappingURL=diamond-search-common.css.map */
