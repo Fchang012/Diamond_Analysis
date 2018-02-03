@@ -6,6 +6,7 @@ import re
 import requests
 import argparse
 import warnings
+import time
 
 
 def _price_to_int(s):
