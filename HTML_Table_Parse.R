@@ -35,12 +35,12 @@ for(i in 1:length(headers)){
 
 # each records
 eachRecord <- getNodeSet(top, '//a')
-blueNileDataframe <- xmlToDataFrame(nodes = eachRecord)
+blueNileDataframe <- xmlToDataFrame(nodes = eachRecord, stringsAsFactors = FALSE)
 urlList <- list()
 for(i in 1:length(eachRecord)){
   urlList[i] <- paste('https://www.bluenile.com', substring((xmlGetAttr(eachRecord[[i]], 'href')),2), sep = '')
 }
-urlList <- t(as.data.frame(urlList))
+urlList <- t(as.data.frame(urlList, stringsAsFactors = FALSE))
 
 # Create df
 names(blueNileDataframe) <- headerList
@@ -48,9 +48,11 @@ blueNileDataframe <- cbind(blueNileDataframe, urlList)
 rownames(blueNileDataframe) <- NULL
 blueNileDataframe <- as.tibble(blueNileDataframe)
 
+# Fix price into a numeric
+blueNileDataframe$Price <- as.numeric(gsub('[$,]', '', blueNileDataframe$Price))
 
 # James Allen -------------------------------------------------------------
-JamesAllenTable <- readHTMLTable("JamesAllenWebTable.txt")
+JamesAllenTable <- readHTMLTable("JamesAllenWebTable.txt", stringsAsFactors = FALSE)
 JamesAllenTable <- list.clean(JamesAllenTable, fun = is.null, recursive = FALSE)
 JamesAllenTable <- as.tibble(JamesAllenTable$ResultsTable[,1:11])
 
@@ -62,7 +64,13 @@ for(i in 1:length(JamesAllenIDs)){
   idList[i] <- paste('https://www.jamesallen.com/ese/?q=', xmlAttrs(JamesAllenIDs[[i]])[[5]], sep = '')
 }
 
-idList <- t(as.data.frame(idList))
+idList <- t(as.data.frame(idList, stringsAsFactors = FALSE))
 rownames(idList) <- NULL
 colnames(idList) <- "James_Allen_id"
 JamesAllenTable <- cbind(JamesAllenTable, idList)
+JamesAllenTable <- as.tibble(JamesAllenTable)
+colnames(JamesAllenTable) <- make.names(colnames(JamesAllenTable))
+colnames(JamesAllenTable) <- gsub('[X.]', '', colnames(JamesAllenTable))
+
+# Fix price as numeric
+JamesAllenTable$Price <- as.numeric(gsub('[$,]', '', JamesAllenTable$Price))
