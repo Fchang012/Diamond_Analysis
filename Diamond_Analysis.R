@@ -1,6 +1,7 @@
 require(ggplot2)
+require(corrplot)
 
-# Some basic analysis on diamond prices based on https://amarder.github.io/how-to-buy-a-diamond.html
+# Some basic analysis on diamond prices based on https://github.com/amarder/diamonds/blob/master/diamonds.Rmd
 
 # Get cur dir from source of R Script
 this.dir <- dirname(parent.frame(2)$ofile)
@@ -23,7 +24,8 @@ ggplot(FinalDF,
            y=Price,
            color=Cut)) +
   geom_point(aes(shape=Cut, color=Cut)) +
-  ggtitle("Caret vs Price With Cut As Legend")
+  ggtitle("Caret vs Price With Cut As Legend") +
+  theme_bw()
 
 # Color
 ggplot(FinalDF,
@@ -31,7 +33,8 @@ ggplot(FinalDF,
            y=Price,
            color=Color)) +
   geom_point(aes(shape=Color, color=Color)) +
-  ggtitle("Caret vs Price With Color As Legend")
+  ggtitle("Caret vs Price With Color As Legend") +
+  theme_bw()
 
 # Clarity
 ggplot(FinalDF,
@@ -39,7 +42,8 @@ ggplot(FinalDF,
            y=Price,
            color=Clarity)) +
   geom_point(aes(shape=Clarity, color=Clarity)) +
-  ggtitle("Caret vs Price With Clarity As Legend")
+  ggtitle("Caret vs Price With Clarity As Legend") +
+  theme_bw()
 
 ## Blue Nile’s buying guide describes how the four C’s (cut, color, clarity, and carat weight) are the most 
 ## important characteristics when buying a diamond. It seems reasonable to model price as a function of those 
@@ -52,3 +56,14 @@ ggplot(FinalDF,
 ## Taking log’s of both sides allows this model to be estimated using a linear regression 
 ##
 ## log(pricei)=α+βlog(carati)+δcuti+δcolori+δclarityi+ϵi
+
+# Create dummy var for Cut, Color, Clarity and disregard the CutGood, ColorG, and ClarityVS2 as they are dependent on the other respective variables
+tempDF <- as.tibble(cbind(model.matrix( ~ Cut - 1, data=FinalDF), model.matrix( ~ Color - 1, data=FinalDF), model.matrix( ~ Clarity - 1, data=FinalDF)))
+FinalDF <- as.tibble(cbind(FinalDF, tempDF))
+colnames(FinalDF) <- make.names(colnames(FinalDF))
+
+fString <- paste('log(Price) ~ log(Carat)+', paste(colnames(FinalDF)[-c(1:6, 11, 15, 20)], collapse = '+'), sep = '')
+fit <- lm(fString, data=FinalDF)
+
+# Correlation matrix
+linDependTerm <- alias(fit)
