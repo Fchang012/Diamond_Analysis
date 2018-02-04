@@ -20,7 +20,7 @@ setwd(this.dir)
 
 
 # Blue Nile ---------------------------------------------------------------
-BlueNileTable <- read_xml("BlueNileTable.html", as_html = T)
+BlueNileTable <- read_xml("./RAW/BlueNileTable.html", as_html = T)
 BlueNileTable <- xmlTreeParse(BlueNileTable)[[1]]
 top <- xmlRoot(BlueNileTable)
 
@@ -52,12 +52,12 @@ blueNileDataframe <- as.tibble(blueNileDataframe)
 blueNileDataframe$Price <- as.numeric(gsub('[$,]', '', blueNileDataframe$Price))
 
 # James Allen -------------------------------------------------------------
-JamesAllenTable <- readHTMLTable("JamesAllenWebTable.txt", stringsAsFactors = FALSE)
+JamesAllenTable <- readHTMLTable("./RAW/JamesAllenWebTable.txt", stringsAsFactors = FALSE)
 JamesAllenTable <- list.clean(JamesAllenTable, fun = is.null, recursive = FALSE)
 JamesAllenTable <- as.tibble(JamesAllenTable$ResultsTable[,1:11])
 
 # Getting the ids
-JamesAllenIDs <- htmlTreeParse("JamesAllenWebTable.txt")[[1]]
+JamesAllenIDs <- htmlTreeParse("./RAW/JamesAllenWebTable.txt")[[1]]
 idList <- list()
 JamesAllenIDs <- getNodeSet(JamesAllenIDs, '//tr[@data-item-id]')
 for(i in 1:length(JamesAllenIDs)){

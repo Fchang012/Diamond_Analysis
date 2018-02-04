@@ -1,0 +1,323 @@
+###############################################################################################################################################################
+
+'Counting to last row
+Function countLastRow(ws As Worksheet, column As String, MyLastRow As Long)
+    With ws
+    'search for the last row index
+    Do Until .Cells(MyLastRow + 1, column).Text = ""
+        MyLastRow = MyLastRow + 1                   'count the row
+    Loop
+    End With
+    
+    countLastRow = MyLastRow
+End Function
+###############################################################################################################################################################
+
+'Opening POD and CSS
+Workbooks.Open Filename:="C:\Users\fc920v\Desktop\Mobility Current Planner\ETTCS POR\ETTCS POD\ETTCS POD.xls"
+Workbooks.Open Filename:="C:\Users\fc920v\Desktop\Mobility Current Planner\ETTCS POR\ETTCS POD\All_Locations_National.csv"
+###############################################################################################################################################################
+
+'Index Match Inside Workbook
+'USID
+Cells(c.Row, "E") = WorksheetFunction.Index(Workbooks("ETTCS POD.xls").Worksheets("Sheet1").Range("B:B"), _
+					WorksheetFunction.Match(WorksheetFunction.Trim(c.Value), Workbooks("ETTCS POD.xls").Worksheets("Sheet1").Range("A:A"), 0))
+###############################################################################################################################################################
+
+'Index Match inside VBA
+USID = Application.Index(Workbooks("All_Locations_National.csv").Worksheets("All_Locations_National").Range("D:D"), Application.Match(convertToLong(c.Value), Workbooks("All_Locations_National.csv").Worksheets("All_Locations_National").Range("F:F"), 0))
+###############################################################################################################################################################
+
+'Putting in a manual Formula into a cell
+'PTN
+PTN = "=INDEX('[ETTCS POR.xls]Sheet1'!$AA:$AA,MATCH(TRIM($B" + CStr(c.Row) + "),'[ETTCS POR.xls]Sheet1'!$A:$A,0))"
+Cells(c.Row, "AV").Formula = PTN
+Cells(c.Row, "AV").Value = Cells(c.Row, "AV").Value
+###############################################################################################################################################################
+
+'Converting to String
+Function convertToString(Number As Variant) As String
+    If VarType(Number) = 2 Or VarType(Number) = 3 Or VarType(Number) = 4 Or VarType(Number) = 5 Then
+        convertToString = CStr(Number)
+    ElseIf VarType(Number) = 10 Then
+        convertToString = "NA"
+    Else
+        convertToString = Trim(Number)
+    End If
+End Function
+###############################################################################################################################################################
+
+'Converting to long
+Function convertToLong(Number As Variant) As Long
+    If VarType(Number) <> 2 Or VarType(Number) <> 3 Or VarType(Number) <> 4 Or VarType(Number) <> 5 Then
+        convertToLong = CLng(Number)
+    End If
+End Function
+###############################################################################################################################################################
+
+'Converting to Double
+Function convertToDouble(Number As Variant) As Double
+    If VarType(Number) <> 2 Or VarType(Number) <> 3 Or VarType(Number) <> 4 Or VarType(Number) <> 5 Then
+        convertToDouble = CDbl(Number)
+    End If
+End Function
+###############################################################################################################################################################
+
+
+'Clear all worksheets
+Sub ClearAll()
+    For Each ws In ActiveWorkbook.Sheets
+        If ActiveSheet.AutoFilterMode Then ActiveSheet.AutoFilterMode = False
+    Next ws
+    Worksheets("Temp").Range("A:XFD").Delete
+End Sub
+###############################################################################################################################################################
+
+'Page load JS
+Public Function pageLoadScript(driver As IEDriver) As String
+Start:
+    'JS implementation of pg load
+    pageLoadScript = "return document.readyState"
+    On Error GoTo Start
+        pageLoadScript = driver.ExecuteScript(pageLoadScript)
+End Function
+###############################################################################################################################################################
+
+'Regx VBA
+Function CleanString(strIn As String) As String
+    Dim objRegex
+    Set objRegex = CreateObject("vbscript.regexp")
+    With objRegex
+     .Global = True
+     .Pattern = "[^\d]+"
+    CleanString = .Replace(strIn, vbNullString)
+    End With
+End Function
+###############################################################################################################################################################
+
+'Using VBA Selenium to start driver and get web stuff
+'Log into Granite
+'Declaration of Variables
+Dim By As New By, Assert As New Assert, Verify As New Verify, Waiter As New Waiter
+Dim driver As New IEDriver
+Dim theRange, curHyper As String
+Dim Territory, numSites As Variant
+
+driver.Start
+driver.Get "http://grmoprdx.it.att.com:7777/pls/xperweb/xperweb.welcome"
+
+Call pageLoadScript(driver)
+
+driver.FindElementByLinkText("engdb").Click
+Call pageLoadScript(driver)
+
+driver.FindElementByName("successOK").Click
+
+MsgBox ("Click")
+###############################################################################################################################################################
+
+'Get Granite Segment ID
+Public Function GetCircuitID(USID As Variant, driver As IEDriver)
+    driver.FindElementByLinkText("Location Information").Click
+    driver.FindElementByCss("img[alt='siteicon.gif']").Click
+    Call pageLoadScript(driver)
+    
+    Application.Wait Now + TimeSerial(0, 0, 1)
+    driver.FindElementByXPath("//input[@value=' Advanced Search ']").Click
+    Call pageLoadScript(driver)
+    
+    driver.FindElementByName("udaName").AsSelect.SelectByText "SITE INTERFACE INFO / CSS USID"
+    driver.FindElementByName("userVal").Clear
+    driver.FindElementByName("userVal").SendKeys USID
+    driver.FindElementByName("maxRows").Clear
+    driver.FindElementByName("maxRows").SendKeys "1000"
+    driver.FindElementByCss("input[type='submit']").Click
+    Call pageLoadScript(driver)
+    
+    Application.Wait Now + TimeSerial(0, 0, 1)
+    driver.FindElementsByTag("a").First.Click
+    Call pageLoadScript(driver)
+    
+    Application.Wait Now + TimeSerial(0, 0, 1)
+    driver.FindElementByXPath("//input[@value='View Segments']").Click
+    Call pageLoadScript(driver)
+End Function
+###############################################################################################################################################################
+
+'Extract webtable from Granite
+Public Function getWebTable(USID As Variant, Territory As Variant, driver As IEDriver)
+    Call pageLoadScript(driver)
+    Application.Wait Now + TimeSerial(0, 0, 1)
+
+    'Finding Num records
+    Dim XPathString, segment, bandwidth, status As String
+    Dim i, j As Integer
+    Dim findRowNum As Variant
+    Dim KRGNCheck, KRGNCheckBegin, BandwidthCheck
+    
+    'Find the # of records using list, last one is usually the # of records
+    Set findRowNum = driver.FindElementsByTag("b")
+    findRowNum = findRowNum(3).Text
+    findRowNum = CleanString(CStr(findRowNum))
+    findRowNum = CInt(findRowNum) + 2
+    
+    
+    Cells(1, "A") = "USID"
+    Cells(1, "B") = "TERRITORY"
+    Cells(1, "C") = driver.FindElementsByXPath("/html/body/table[2]/tbody/tr[1]/th[1]").Text.First
+    Cells(1, "D") = driver.FindElementsByXPath("/html/body/table[2]/tbody/tr[1]/th[2]").Text.First
+    Cells(1, "E") = driver.FindElementsByXPath("/html/body/table[2]/tbody/tr[1]/th[5]").Text.First
+    
+    j = 2
+    
+    'Build table
+    For i = 3 To findRowNum
+        'Check Segment
+        XPathString = "/HTML/BODY/TABLE[2]/TBODY/TR[" + CStr(i) + "]/TD[1]"
+        segment = driver.FindElementsByXPath(XPathString).Text.First
+        
+        'Check Bandwidth
+        XPathString = "/HTML/BODY/TABLE[2]/TBODY/TR[" + CStr(i) + "]/TD[2]"
+        bandwidth = driver.FindElementsByXPath(XPathString).Text.First
+        
+        KRGNCheck = segment Like "*KRGN*"
+        KRGNCheckBegin = segment Like "KRGN*"
+        BandwidthCheck = bandwidth Like "1Gbps"
+        
+        If Territory = "IF" And (KRGNCheck Or KRGNCheckBegin) Then
+            Cells(j, "A") = USID
+            Cells(j, "B") = Territory
+            Cells(j, "C") = segment
+            Cells(j, "D") = bandwidth
+            
+            XPathString = "/HTML/BODY/TABLE[2]/TBODY/TR[" + CStr(i) + "]/TD[5]"
+            status = driver.FindElementsByXPath(XPathString).Text.First
+            Cells(j, "E") = status
+            
+            j = j + 1
+        
+        ElseIf Territory = "OOF" And BandwidthCheck Then
+            Cells(j, "A") = USID
+            Cells(j, "B") = Territory
+            Cells(j, "C") = segment
+            Cells(j, "D") = bandwidth
+            
+            XPathString = "/HTML/BODY/TABLE[2]/TBODY/TR[" + CStr(i) + "]/TD[5]"
+            status = driver.FindElementsByXPath(XPathString).Text.First
+            Cells(j, "E") = status
+            
+            j = j + 1
+        End If
+        
+    Next i
+    
+End Function
+###############################################################################################################################################################
+
+'Finding Parent Path Of active worksheet
+ParentPath = Left$(Application.ActiveWorkbook.Path, InStrRev(Application.ActiveWorkbook.Path, "\") - 1)
+###############################################################################################################################################################
+
+'Copy item into clipboard
+Sub CopyText(Text As String)
+    'VBA Macro using late binding to copy text to clipboard.
+    'By Justin Kay, 8/15/2014
+    Dim MSForms_DataObject As Object
+    Set MSForms_DataObject = CreateObject("new:{1C3B4210-F441-11CE-B9EA-00AA006B1A69}")
+    MSForms_DataObject.SetText Text
+    MSForms_DataObject.PutInClipboard
+    Set MSForms_DataObject = Nothing
+End Sub
+###############################################################################################################################################################
+
+'Return column number of where this value is found
+Function findCol(vText As Variant, rowNum As Variant) As Variant
+    vText = convertToString(vText)
+    vText = vText + "*"
+    rowNum = convertToString(rowNum)
+    rowNum = "A" + rowNum + ":XFD" + rowNum
+    
+    findCol = Application.WorksheetFunction.Match(vText, Workbooks("Tower_Strategy_Macros_v2.xlsm").Worksheets("RAW").Range(rowNum), 0)
+End Function
+###############################################################################################################################################################
+
+'Finding distance between 2 lat longs VBA
+'Source: https://www.geodatasource.com/developers/vb
+':::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+':::                                                                         :::
+':::  This routine calculates the distance between two points (given the     :::
+':::  latitude/longitude of those points). It is being used to calculate     :::
+':::  the distance between two locations using  GeoDataSource(TM) products   :::
+':::                                                                         :::
+':::  Definitions:                                                           :::
+':::    South latitudes are negative, east longitudes are positive           :::
+':::                                                                         :::
+':::  Passed to function:                                                    :::
+':::    lat1, lon1 = Latitude and Longitude of point 1 (in decimal degrees)  :::
+':::    lat2, lon2 = Latitude and Longitude of point 2 (in decimal degrees)  :::
+':::    unit = the unit you desire for results                               :::
+':::           where: 'M' is statute miles (default)                         :::
+':::                  'K' is kilometers                                      :::
+':::                  'N' is nautical miles                                  :::
+':::                                                                         :::
+':::  Worldwide cities and other features databases with latitude longitude  :::
+':::  are available at https://www.geodatasource.com	                         :::
+':::                                                                         :::
+':::  For enquiries, please contact sales@geodatasource.com                  :::
+':::                                                                         :::
+':::  Official Web site: https://www.geodatasource.com                        :::
+':::                                                                         :::
+':::             GeoDataSource.com (C) All Rights Reserved 2017              :::
+':::                                                                         :::
+':::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+const pi = 3.14159265358979323846
+
+'Function to calculate distance
+Function distance(lat1, lon1, lat2, lon2, unit)
+  Dim theta, dist
+  theta = lon1 - lon2
+  dist = Sin(deg2rad(lat1)) * Sin(deg2rad(lat2)) + Cos(deg2rad(lat1)) * Cos(deg2rad(lat2)) * Cos(deg2rad(theta))
+  dist = acos(dist)
+  dist = rad2deg(dist)
+  distance = dist * 60 * 1.1515
+  Select Case UCase(unit)
+    Case "K"
+      distance = distance * 1.609344
+    Case "N"
+      distance = distance * 0.8684
+  End Select
+End Function
+
+
+'::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+':::  This function get the arccos function using arctan function   :::
+'::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+Function acos(rad)
+  If Abs(rad) <> 1 Then
+    acos = pi/2 - Atn(rad / Sqr(1 - rad * rad))
+  ElseIf rad = -1 Then
+    acos = pi
+  End If
+End function
+
+
+'::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+':::  This function converts decimal degrees to radians             :::
+'::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+Function deg2rad(Deg)
+	deg2rad = cdbl(Deg * pi / 180)
+End Function
+
+'::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+':::  This function converts radians to decimal degrees             :::
+'::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+Function rad2deg(Rad)
+	rad2deg = cdbl(Rad * 180 / pi)
+End Function
+
+msgbox(distance(32.9697, -96.80322, 29.46786, -98.53506, "M") & " Miles<br>")
+msgbox(distance(32.9697, -96.80322, 29.46786, -98.53506, "K") & " Kilometers<br>")
+msgbox(distance(32.9697, -96.80322, 29.46786, -98.53506, "N") & " Nautical Miles<br>")
+###############################################################################################################################################################
+
