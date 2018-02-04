@@ -51,6 +51,7 @@ blueNileDataframe <- as.tibble(blueNileDataframe)
 # Fix price into a numeric
 blueNileDataframe$Price <- as.numeric(gsub('[$,]', '', blueNileDataframe$Price))
 
+
 # James Allen -------------------------------------------------------------
 JamesAllenTable <- readHTMLTable("./RAW/JamesAllenWebTable.txt", stringsAsFactors = FALSE)
 JamesAllenTable <- list.clean(JamesAllenTable, fun = is.null, recursive = FALSE)
@@ -66,7 +67,7 @@ for(i in 1:length(JamesAllenIDs)){
 
 idList <- t(as.data.frame(idList, stringsAsFactors = FALSE))
 rownames(idList) <- NULL
-colnames(idList) <- "James_Allen_id"
+colnames(idList) <- "urlList"
 JamesAllenTable <- cbind(JamesAllenTable, idList)
 JamesAllenTable <- as.tibble(JamesAllenTable)
 colnames(JamesAllenTable) <- make.names(colnames(JamesAllenTable))
@@ -74,3 +75,23 @@ colnames(JamesAllenTable) <- gsub('[X.]', '', colnames(JamesAllenTable))
 
 # Fix price as numeric
 JamesAllenTable$Price <- as.numeric(gsub('[$,]', '', JamesAllenTable$Price))
+
+
+# Combine And Write To CSV File -------------------------------------------
+reqd <- as.vector(c("Price", "Carat", "Cut", "Color", "Clarity", "urlList"))
+FinalDF <- blueNileDataframe[,reqd]
+
+# Fixing cuts for bluenile
+FinalDF[FinalDF$Cut == "GoodGood",]$Cut <- "Good"
+FinalDF[FinalDF$Cut == "Very GoodVery Good",]$Cut <- "Very Good"
+FinalDF[FinalDF$Cut == "Astor IdealAstor",]$Cut <- "Astor Ideal"
+
+#JamesAllen add in
+tempJamesAllenDF <- JamesAllenTable[, reqd]
+FinalDF <- rbind(FinalDF, tempJamesAllenDF)
+
+#Turn Carat into numerica
+FinalDF$Carat <- as.numeric(FinalDF$Carat)
+
+#Write into Clean_data using char 127 as sep
+write.table(FinalDF, "./Clean_Data/Diamond_Data.csv", sep = rawToChar(as.raw(127)))
