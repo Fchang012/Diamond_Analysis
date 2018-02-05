@@ -1,5 +1,6 @@
 require(ggplot2)
 require(corrplot)
+require(tibble)
 
 # Some basic analysis on diamond prices based on https://github.com/amarder/diamonds/blob/master/diamonds.Rmd
 
@@ -65,5 +66,12 @@ colnames(FinalDF) <- make.names(colnames(FinalDF))
 fString <- paste('log(Price) ~ log(Carat)+', paste(colnames(FinalDF)[-c(1:6, 11, 15, 20)], collapse = '+'), sep = '')
 fit <- lm(fString, data=FinalDF)
 
-# Correlation matrix
+# Correlation
 linDependTerm <- alias(fit)
+
+# Find the coeff of fit and use it to plot fitted line
+# https://www.statmethods.net/stats/regression.html for more documentation on Fitting lm
+coeff=coefficients(fit)
+
+
+
