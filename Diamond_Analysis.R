@@ -74,4 +74,13 @@ linDependTerm <- alias(fit)
 coeff=coefficients(fit)
 
 
+# PLotting regression line
+ggplot(FinalDF, aes(x=Carat,
+                    y=Price,
+                    color=Cut)) + 
+  geom_point() +
+  stat_smooth(method = "lm", col = "red")
 
+# Adding in the regression forecasts back into df
+FinalDF <- cbind(FinalDF, Forecast=exp(predict(fit)))
+FinalDF <- cbind(FinalDF, Residual=resid(fit))
