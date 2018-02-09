@@ -1,6 +1,7 @@
 require(ggplot2)
 require(corrplot)
 require(tibble)
+require(dplyr)
 
 # Some basic analysis on diamond prices based on https://github.com/amarder/diamonds/blob/master/diamonds.Rmd
 
@@ -84,3 +85,31 @@ ggplot(FinalDF, aes(x=Carat,
 # Adding in the regression forecasts back into df
 FinalDF <- cbind(FinalDF, Forecast=exp(predict(fit)))
 FinalDF <- cbind(FinalDF, Residual=resid(fit))
+
+# Top 1% with least residuals
+focus <- FinalDF[FinalDF$Residual <= quantile(FinalDF$Residual, 0.1), ]
+
+# Plot of Top 1%
+ggplot(focus,
+       aes(x=Carat,
+           y=Price,
+           color=Cut)) +
+  geom_point(aes(shape=Cut, color=Cut)) +
+  ggtitle("Top 1% Cut") +
+  theme_bw()
+
+ggplot(focus,
+       aes(x=Carat,
+           y=Price,
+           color=Color)) +
+  geom_point(aes(shape=Color, color=Color)) +
+  ggtitle("Top 1% Color") +
+  theme_bw()
+
+ggplot(focus,
+       aes(x=Carat,
+           y=Price,
+           color=Clarity)) +
+  geom_point(aes(shape=Clarity, color=Clarity)) +
+  ggtitle("Top 1% Clarity") +
+  theme_bw()
