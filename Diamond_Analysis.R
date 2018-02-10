@@ -13,8 +13,8 @@ setwd(this.dir)
 FinalDF <- read.csv("./Clean_Data/Diamond_Data.csv", sep = rawToChar(as.raw(127)))
 
 # Reorder Factor Levels
-FinalDF$Cut <- factor(FinalDF$Cut, levels(FinalDF$Cut)[c(1,2,4,5,3)])
-FinalDF$Clarity <- factor(FinalDF$Clarity, levels(FinalDF$Clarity)[c(1,4,5,2,3)])
+FinalDF$Cut <- factor(FinalDF$Cut, levels(FinalDF$Cut)[c(1,5,2,4,6,3)])
+FinalDF$Clarity <- factor(FinalDF$Clarity, levels(FinalDF$Clarity)[c(1,6,7,4,5,2,3)])
 
 
 ## Plot of Caret vs Price and Amarder Analysis --------------------------------------------------------
@@ -23,8 +23,7 @@ FinalDF$Clarity <- factor(FinalDF$Clarity, levels(FinalDF$Clarity)[c(1,4,5,2,3)]
 # Cut
 ggplot(FinalDF,
        aes(x=Carat,
-           y=Price,
-           color=Cut)) +
+           y=Price)) +
   geom_point(aes(shape=Cut, color=Cut)) +
   ggtitle("Caret vs Price With Cut As Legend") +
   theme_bw()
@@ -32,8 +31,7 @@ ggplot(FinalDF,
 # Color
 ggplot(FinalDF,
        aes(x=Carat,
-           y=Price,
-           color=Color)) +
+           y=Price)) +
   geom_point(aes(shape=Color, color=Color)) +
   ggtitle("Caret vs Price With Color As Legend") +
   theme_bw()
@@ -41,8 +39,7 @@ ggplot(FinalDF,
 # Clarity
 ggplot(FinalDF,
        aes(x=Carat,
-           y=Price,
-           color=Clarity)) +
+           y=Price)) +
   geom_point(aes(shape=Clarity, color=Clarity)) +
   ggtitle("Caret vs Price With Clarity As Legend") +
   theme_bw()
@@ -64,7 +61,7 @@ tempDF <- as.tibble(cbind(model.matrix( ~ Cut - 1, data=FinalDF), model.matrix( 
 FinalDF <- as.tibble(cbind(FinalDF, tempDF))
 colnames(FinalDF) <- make.names(colnames(FinalDF))
 
-fString <- paste('log(Price) ~ log(Carat)+', paste(colnames(FinalDF)[-c(1:6, 11, 15, 20)], collapse = '+'), sep = '')
+fString <- paste('log(Price) ~ log(Carat)+', paste(colnames(FinalDF)[-c(1:6, 12, 20, 27)], collapse = '+'), sep = '')
 fit <- lm(fString, data=FinalDF)
 
 # Correlation
@@ -113,3 +110,6 @@ ggplot(focus,
   geom_point(aes(shape=Clarity, color=Clarity)) +
   ggtitle("Top 1% Clarity") +
   theme_bw()
+
+# Write to table to explore
+write.table(focus[,c(1:6,28:29)], "./Output/focus.csv", sep = ",", row.names = FALSE)

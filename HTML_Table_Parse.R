@@ -7,9 +7,9 @@ require(tibble)
 
 # # General Diamond Criteria
 # Shape: Princess
-# Caret: 0.85 - 2.0
-# Color: G - D
-# Clarity: Vs2- FL
+# Caret: 0.85 - 1.5
+# Color: J - D
+# Clarity: SI2- FL
 # Depth: 73 - 76
 # Table: 67 - 71
 
@@ -75,6 +75,9 @@ colnames(JamesAllenTable) <- gsub('[X.]', '', colnames(JamesAllenTable))
 
 # Fix price as numeric
 JamesAllenTable$Price <- as.numeric(gsub('[$,]', '', JamesAllenTable$Price))
+
+# Remove IGI Lab results
+JamesAllenTable <- JamesAllenTable[JamesAllenTable$Lab != "IGI",]
 
 
 # Combine And Write To CSV File -------------------------------------------
