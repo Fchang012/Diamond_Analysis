@@ -64,6 +64,9 @@ colnames(FinalDF) <- make.names(colnames(FinalDF))
 fString <- paste('log(Price) ~ log(Carat)+', paste(colnames(FinalDF)[-c(1:6, 12, 20, 27)], collapse = '+'), sep = '')
 fit <- lm(fString, data=FinalDF)
 
+# Summary of fit
+summary(fit)
+
 # Correlation
 linDependTerm <- alias(fit)
 
@@ -85,6 +88,9 @@ FinalDF <- cbind(FinalDF, Residual=resid(fit))
 
 # Top 1% with least residuals
 focus <- FinalDF[FinalDF$Residual <= quantile(FinalDF$Residual, 0.1), ]
+
+# Only ideal + cuts
+focus <-focus[(focus$CutAstor.Ideal == 1 | focus$CutIdeal == 1), ]
 
 # Plot of Top 1%
 ggplot(focus,
