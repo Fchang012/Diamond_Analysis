@@ -12,6 +12,16 @@ require(tibble)
 # Clarity: SI2- FL
 # Depth: 73 - 76
 # Table: 67 - 71
+# 
+# Shape: Round
+# https://www.lumeradiamonds.com/diamond-education/round-diamonds
+# Caret: 0.85 - 1.5
+# Color: J - D
+# Clarity: SI2 - FL
+# Depth: 59 - 63
+# Table: 53 - 58
+# Price: 0 - 5000
+
 
 
 # Get cur dir from source of R Script
