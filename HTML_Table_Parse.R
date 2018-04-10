@@ -98,6 +98,7 @@ FinalDF <- blueNileDataframe[,reqd]
 FinalDF[FinalDF$Cut == "GoodGood",]$Cut <- "Good"
 FinalDF[FinalDF$Cut == "Very GoodVery Good",]$Cut <- "Very Good"
 FinalDF[FinalDF$Cut == "Astor IdealAstor",]$Cut <- "Astor Ideal"
+FinalDF[FinalDF$Cut == "IdealIdeal",]$Cut <- "Ideal"
 
 #JamesAllen add in
 tempJamesAllenDF <- JamesAllenTable[, reqd]

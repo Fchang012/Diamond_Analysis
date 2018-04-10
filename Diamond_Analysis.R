@@ -44,15 +44,15 @@ ggplot(FinalDF,
   ggtitle("Caret vs Price With Clarity As Legend") +
   theme_bw()
 
-## Blue Nile’s buying guide describes how the four C’s (cut, color, clarity, and carat weight) are the most 
-## important characteristics when buying a diamond. It seems reasonable to model price as a function of those 
-## four characteristics. Having played around with the data bit, a multiplicative model seems like a good choice. 
-## I model price as a product of carat weight raised to the power β times multipliers for the cut, color, and 
+## Blue Nile’s buying guide describes how the four C’s (cut, color, clarity, and carat weight) are the most
+## important characteristics when buying a diamond. It seems reasonable to model price as a function of those
+## four characteristics. Having played around with the data bit, a multiplicative model seems like a good choice.
+## I model price as a product of carat weight raised to the power β times multipliers for the cut, color, and
 ## clarity of the diamond.
 ##
 ## Pricei∝caratβi ⋅ cuti ⋅ colori ⋅ clarityi
-## 
-## Taking log’s of both sides allows this model to be estimated using a linear regression 
+##
+## Taking log’s of both sides allows this model to be estimated using a linear regression
 ##
 ## log(pricei)=α+βlog(carati)+δcuti+δcolori+δclarityi+ϵi
 
@@ -78,7 +78,7 @@ coeff=coefficients(fit)
 # PLotting regression line
 ggplot(FinalDF, aes(x=Carat,
                     y=Price,
-                    color=Cut)) + 
+                    color=Cut)) +
   geom_point() +
   stat_smooth(method = "lm", col = "red")
 
@@ -118,4 +118,4 @@ ggplot(focus,
   theme_bw()
 
 # Write to table to explore
-write.table(focus[,c(1:6,28:29)], "./Output/focus.csv", sep = ",", row.names = FALSE)
+write.table(focus[,c(1:6,27:28)], "./Output/focus.csv", sep = ",", row.names = FALSE)

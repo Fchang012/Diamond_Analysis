@@ -1,46 +1,82 @@
 "Price","Carat","Cut","Color","Clarity","urlList","Forecast","Residual"
-2684,0.87,"Astor Ideal","J","VVS2","https://www.bluenile.com/diamond-details/LD09828776?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",3177.05016150983,-0.168644925008237
-2896,0.86,"Astor Ideal","E","SI2","https://www.bluenile.com/diamond-details/LD09800531?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",3579.90076485496,-0.212004606190697
-3563,0.92,"Astor Ideal","I","VS1","https://www.bluenile.com/diamond-details/LD09941466?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",4144.89920931608,-0.151275585459492
-3597,0.93,"Astor Ideal","I","VS2","https://www.bluenile.com/diamond-details/LD09914848?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",4073.40504921251,-0.124379106396517
-3924,0.87,"Astor Ideal","E","VS1","https://www.bluenile.com/diamond-details/LD09983287?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",4855.71108493295,-0.213044013771111
-4096,0.92,"Astor Ideal","E","SI1","https://www.bluenile.com/diamond-details/LD09914806?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",4623.05440866123,-0.121044726323839
-4207,0.94,"Astor Ideal","G","VS2","https://www.bluenile.com/diamond-details/LD00015732?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",4991.46817815984,-0.170980285959756
-4225,0.85,"Astor Ideal","D","VS1","https://www.bluenile.com/diamond-details/LD09894354?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",4914.83365231119,-0.151238647316161
-4445,0.92,"Astor Ideal","F","VS2","https://www.bluenile.com/diamond-details/LD09854189?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",5066.80690122309,-0.130930947708207
-4485,0.97,"Astor Ideal","G","VS2","https://www.bluenile.com/diamond-details/LD09970554?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",5319.7620960657,-0.170690088058237
-4645,0.95,"Astor Ideal","G","VS1","https://www.bluenile.com/diamond-details/LD09914829?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",5304.23266654361,-0.13271374589692
-5319,0.94,"Astor Ideal","F","VVS1","https://www.bluenile.com/diamond-details/LD09868510?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",6106.79906481977,-0.138117435502934
-5361,1.04,"Astor Ideal","H","VVS1","https://www.bluenile.com/diamond-details/LD09781862?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",6490.11589192099,-0.191129862709774
-5431,1.06,"Astor Ideal","E","SI1","https://www.bluenile.com/diamond-details/LD09921640?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",6161.13956387374,-0.126138475518762
-7505,1.22,"Astor Ideal","H","VVS1","https://www.bluenile.com/diamond-details/LD09921667?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",8970.50038057722,-0.178371993217291
-10701,1.5,"Astor Ideal","I","VVS1","https://www.bluenile.com/diamond-details/LD00035305?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",12389.0903982503,-0.146479083716424
-1950,0.91,"Ideal","K","VVS2","https://www.jamesallen.com/ese/?q=4309068",2261.0721214334,-0.148009718235955
-2090,0.91,"Ideal","J","VS1","https://www.jamesallen.com/ese/?q=4398059",2505.76756331304,-0.181431034125604
-2250,0.92,"Ideal","J","VS1","https://www.jamesallen.com/ese/?q=3358149",2561.91375649047,-0.129824324119594
-2280,0.9,"Ideal","J","VVS2","https://www.jamesallen.com/ese/?q=3563960",2572.9878469596,-0.120892367026188
-2280,0.9,"Ideal","G","SI2","https://www.jamesallen.com/ese/?q=1993108",2712.51689656323,-0.173701505028566
-2350,0.96,"Ideal","J","VS2","https://www.jamesallen.com/ese/?q=4046250",2685.12693686385,-0.133312674986661
-2510,0.91,"Ideal","F","SI2","https://www.jamesallen.com/ese/?q=3357316",2941.34594609811,-0.158584528241535
-2670,0.91,"Ideal","I","VVS1","https://www.jamesallen.com/ese/?q=4398074",3400.29954515743,-0.241785056846142
-2690,1.2,"Ideal","K","SI1","https://www.jamesallen.com/ese/?q=4367668",3207.37072184507,-0.17591031812297
-2740,0.9,"Ideal","E","SI1","https://www.jamesallen.com/ese/?q=4359175",3343.00070111923,-0.198910896765526
-2780,0.85,"Ideal","G","VS1","https://www.jamesallen.com/ese/?q=4416137",3200.68374459039,-0.140913529463417
-2910,0.9,"Ideal","G","VS1","https://www.jamesallen.com/ese/?q=4414614",3593.96863856194,-0.211103981085902
-2920,0.9,"Ideal","H","VVS1","https://www.jamesallen.com/ese/?q=4414652",3660.16772238058,-0.225925355870164
-2920,0.86,"Ideal","E","VS2","https://www.jamesallen.com/ese/?q=4243672",3447.92659771884,-0.166189447930054
-3200,0.9,"Ideal","E","VS2","https://www.jamesallen.com/ese/?q=4329901",3780.85867431186,-0.166800336544687
-3200,1.23,"Ideal","K","VS2","https://www.jamesallen.com/ese/?q=4372004",3813.69984876413,-0.175448997045585
-3340,0.9,"Ideal","F","VS1","https://www.jamesallen.com/ese/?q=4416127",3810.81506765391,-0.131872287788649
-3640,1.01,"Ideal","E","SI1","https://www.jamesallen.com/ese/?q=2473770",4223.52238695795,-0.148685787092853
-3750,1.02,"Ideal","E","SI1","https://www.jamesallen.com/ese/?q=3338967",4308.74067929668,-0.138889835660728
-3830,1.08,"Ideal","F","SI1","https://www.jamesallen.com/ese/?q=3357711",4688.49274360013,-0.202246350981998
-3910,1,"Ideal","H","VVS1","https://www.jamesallen.com/ese/?q=4227059",4531.86994328853,-0.147597271335821
-4090,1.22,"Ideal","J","VVS2","https://www.jamesallen.com/ese/?q=2474013",4767.76308683768,-0.153332270310603
-4230,1.03,"Ideal","F","VS2","https://www.jamesallen.com/ese/?q=3318514",4816.66698618948,-0.129880199169062
-4280,1.08,"Ideal","E","SI1","https://www.jamesallen.com/ese/?q=2549234",4838.17837337443,-0.122585271152682
-4580,1.12,"Ideal","G","VS1","https://www.jamesallen.com/ese/?q=4328133",5599.42782946666,-0.200965421085441
-4840,1.13,"Ideal","G","VS2","https://www.jamesallen.com/ese/?q=3883702",5481.44249249737,-0.124453574150743
-4870,1.2,"Ideal","F","SI1","https://www.jamesallen.com/ese/?q=3891298",5805.09991772407,-0.175642890262796
-5590,1.2,"Ideal","D","SI1","https://www.jamesallen.com/ese/?q=3731385",6356.13946077993,-0.128441902862081
-5620,1.5,"Ideal","I","SI2","https://www.jamesallen.com/ese/?q=4354995",6372.84220129153,-0.125713891613423
+2483,0.85,"Ideal","I","SI2","https://www.bluenile.com./diamond-details/LD00092777?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",2947.46726509552,-0.1714787408547
+2933,0.91,"Ideal","I","SI2","https://www.bluenile.com./diamond-details/LD08140544?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",3358.74199141696,-0.135540706555558
+2948,0.9,"Ideal","J","SI1","https://www.bluenile.com./diamond-details/LD10160923?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",3379.55796154752,-0.136617946008119
+2970,0.9,"Ideal","J","SI1","https://www.bluenile.com./diamond-details/LD00000276?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",3379.55796154752,-0.129182967520609
+3031,0.9,"Ideal","J","VS1","https://www.bluenile.com./diamond-details/LD10159322?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",3769.69582707883,-0.218101717656843
+3046,0.9,"Ideal","J","VS2","https://www.bluenile.com./diamond-details/LD10060809?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",3664.55814395105,-0.184878512602018
+3065,0.9,"Ideal","H","SI2","https://www.bluenile.com./diamond-details/LD08928389?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",3550.96838316003,-0.147172780889157
+3075,0.9,"Ideal","H","SI2","https://www.bluenile.com./diamond-details/LD09384908?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",3550.96838316003,-0.14391544901885
+3102,0.9,"Ideal","E","SI2","https://www.bluenile.com./diamond-details/LD04606494?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",3798.8094228741,-0.20264064311632
+3112,0.9,"Ideal","J","VS1","https://www.bluenile.com./diamond-details/LD09740449?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",3769.69582707883,-0.191728709416363
+3117,0.92,"Ideal","H","SI2","https://www.bluenile.com./diamond-details/LD08726897?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",3703.61890473658,-0.172439423215385
+3140,0.9,"Ideal","J","VS2","https://www.bluenile.com./diamond-details/LD10046061?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",3664.55814395105,-0.154484967154824
+3166,0.9,"Ideal","J","VS2","https://www.bluenile.com./diamond-details/LD10159323?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",3664.55814395105,-0.146238805616167
+3174,0.9,"Ideal","G","SI2","https://www.bluenile.com./diamond-details/LD09940034?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",3661.98755008651,-0.143013424384463
+3178,0.9,"Ideal","J","VS2","https://www.bluenile.com./diamond-details/LD10127189?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",3664.55814395105,-0.142455698960463
+3182,0.9,"Ideal","F","SI2","https://www.bluenile.com./diamond-details/LD09825134?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",3734.06257123829,-0.159986872224356
+3223,0.9,"Ideal","J","VS1","https://www.bluenile.com./diamond-details/LD08439568?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",3769.69582707883,-0.156681712899208
+3235,0.9,"Ideal","J","VS1","https://www.bluenile.com./diamond-details/LD08498031?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",3769.69582707883,-0.152965387779644
+3245,0.9,"Ideal","J","VS2","https://www.bluenile.com./diamond-details/LD09603817?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",3664.55814395105,-0.121592416918933
+3255,0.85,"Ideal","G","SI1","https://www.bluenile.com./diamond-details/LD00074124?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",3730.85297169727,-0.136444610591464
+3260,0.85,"Ideal","G","SI1","https://www.bluenile.com./diamond-details/LD10080165?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",3730.85297169727,-0.134909690873379
+3263,0.9,"Ideal","J","VVS2","https://www.bluenile.com./diamond-details/LD10033332?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",3848.49136690954,-0.165034201143444
+3266,0.85,"Ideal","H","SI1","https://www.bluenile.com./diamond-details/LD09855253?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",3617.74603641202,-0.102285195492376
+3267,0.86,"Ideal","I","VS2","https://www.bluenile.com./diamond-details/LD10122125?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",3715.07058000204,-0.128525544025024
+3268,0.9,"Ideal","G","SI2","https://www.bluenile.com./diamond-details/LD09839586?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",3661.98755008651,-0.113827869490924
+3280,0.9,"Ideal","J","VVS1","https://www.bluenile.com./diamond-details/LD09789037?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",3902.20075408158,-0.173697267502884
+3281,0.91,"Ideal","G","SI2","https://www.bluenile.com./diamond-details/LD09190703?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",3740.30334994541,-0.131018463769399
+3286,0.9,"Ideal","J","VS2","https://www.bluenile.com./diamond-details/LD00040179?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",3664.55814395105,-0.109036747459911
+3317,0.91,"Ideal","F","SI2","https://www.bluenile.com./diamond-details/LD09843743?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",3813.91977801192,-0.139596713434719
+3318,0.9,"Ideal","E","SI2","https://www.bluenile.com./diamond-details/LD10143003?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",3798.8094228741,-0.135325516102414
+3324,0.85,"Ideal","E","SI1","https://www.bluenile.com./diamond-details/LD09676625?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",3870.24784502794,-0.152149670640782
+3329,0.9,"Ideal","F","SI2","https://www.bluenile.com./diamond-details/LD10040191?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",3734.06257123829,-0.114824843547065
+3371,0.91,"Ideal","G","SI2","https://www.bluenile.com./diamond-details/LD09649010?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",3740.30334994541,-0.103957281496439
+3374,0.91,"Ideal","J","VS1","https://www.bluenile.com./diamond-details/LD09683592?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",3850.31509185909,-0.132056002868415
+3417,0.9,"Ideal","J","VVS2","https://www.bluenile.com./diamond-details/LD10159320?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",3848.49136690954,-0.118918245621473
+3427,0.9,"Ideal","E","SI2","https://www.bluenile.com./diamond-details/LD10033329?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",3798.8094228741,-0.103002464978197
+3476,0.9,"Ideal","D","SI2","https://www.bluenile.com./diamond-details/LD09360143?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",3860.06309347925,-0.10480132140101
+3485,0.9,"Ideal","D","SI2","https://www.bluenile.com./diamond-details/LD09549518?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",3860.06309347925,-0.102215484591669
+3512,0.9,"Ideal","J","VVS1","https://www.bluenile.com./diamond-details/LD08774830?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",3902.20075408158,-0.105355014126067
+3544,1.06,"Ideal","J","SI2","https://www.bluenile.com./diamond-details/LD09970221?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",4067.41770914938,-0.137752295854308
+3606,1.02,"Ideal","I","SI2","https://www.bluenile.com./diamond-details/LD08978648?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",4179.09997138468,-0.147496780720825
+3608,0.9,"Ideal","G","SI1","https://www.bluenile.com./diamond-details/LD09872345?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",4162.41928515583,-0.142942861964679
+3625,0.9,"Ideal","H","SI1","https://www.bluenile.com./diamond-details/LD09887494?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",4036.22870828567,-0.10745647964707
+3659,0.9,"Ideal","F","SI1","https://www.bluenile.com./diamond-details/LD10025517?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",4244.34377395239,-0.148397333779257
+3687,0.9,"Ideal","F","SI1","https://www.bluenile.com./diamond-details/LD09558654?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",4244.34377395239,-0.140774100564319
+3687,0.9,"Ideal","F","SI1","https://www.bluenile.com./diamond-details/LD09747520?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",4244.34377395239,-0.140774100564319
+3710,0.9,"Ideal","I","VVS2","https://www.bluenile.com./diamond-details/LD00018687?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",4256.43749394778,-0.137400664767635
+3736,0.9,"Ideal","F","SI1","https://www.bluenile.com./diamond-details/LD09838646?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",4244.34377395239,-0.127571699449731
+3762,0.9,"Ideal","I","VS1","https://www.bluenile.com./diamond-details/LD09792138?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",4169.28950318572,-0.102794907486022
+3785,1,"Ideal","H","SI2","https://www.bluenile.com./diamond-details/LD09820089?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",4344.83584647146,-0.137942091245843
+3798,0.9,"Ideal","I","VVS2","https://www.bluenile.com./diamond-details/LD08430420?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",4256.43749394778,-0.113957928996884
+3911,1.02,"Ideal","H","SI2","https://www.bluenile.com./diamond-details/LD08983555?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",4512.76672744868,-0.14311733471472
+3961,1.05,"Ideal","J","SI1","https://www.bluenile.com./diamond-details/LD09867749?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",4540.08961136986,-0.13645023140593
+4088,1.01,"Ideal","G","SI2","https://www.bluenile.com./diamond-details/LD10053122?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",4566.87320042163,-0.110772916611641
+4099,1,"Ideal","F","SI2","https://www.bluenile.com./diamond-details/LD08985805?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",4568.86324007363,-0.108521388475675
+4101,1,"Ideal","E","SI2","https://www.bluenile.com./diamond-details/LD10080983?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",4648.08513437928,-0.125224489318668
+4142,1.1,"Ideal","I","SI2","https://www.bluenile.com./diamond-details/LD00080641?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",4829.26592705761,-0.153515711165066
+4157,1.06,"Ideal","J","SI1","https://www.bluenile.com./diamond-details/LD06982738?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",4623.25381552641,-0.106305086003018
+4176,1.03,"Ideal","J","VS2","https://www.bluenile.com./diamond-details/LD08986165?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",4744.95111583023,-0.127727279179905
+4218,0.95,"Ideal","F","SI1","https://www.bluenile.com./diamond-details/LD09925931?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",4707.35932636593,-0.109766016171137
+4279,1.05,"Ideal","H","SI2","https://www.bluenile.com./diamond-details/LD08986117?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",4770.36193789837,-0.108702842553153
+4313,1.08,"Ideal","J","SI1","https://www.bluenile.com./diamond-details/LD10140342?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",4791.74467776096,-0.105260860793328
+4333,1.1,"Ideal","H","SI2","https://www.bluenile.com./diamond-details/LD09886043?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",5214.84308651422,-0.185248856366834
+4340,1.04,"Ideal","G","SI2","https://www.bluenile.com./diamond-details/LD08746486?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",4830.17246477402,-0.107007825907296
+4342,1.04,"Ideal","I","SI1","https://www.bluenile.com./diamond-details/LD09868180?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",4930.16457819511,-0.12703729904239
+4421,1.06,"Ideal","I","SI1","https://www.bluenile.com./diamond-details/LD06928765?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",5113.32597849798,-0.145484154061765
+4433,1.2,"Ideal","J","SI2","https://www.bluenile.com./diamond-details/LD09925934?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",5158.11802248376,-0.151495232877664
+4442,1.04,"Ideal","I","SI1","https://www.bluenile.com./diamond-details/LD10031936?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",4930.16457819511,-0.104267645026256
+4478,1.06,"Ideal","I","SI1","https://www.bluenile.com./diamond-details/LD09868428?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",5113.32597849798,-0.132673550729308
+4503,1.21,"Ideal","J","SI2","https://www.bluenile.com./diamond-details/LD08517270?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",5240.74766594626,-0.151720331176021
+4559,1.14,"Ideal","I","SI2","https://www.bluenile.com./diamond-details/LD00016083?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",5171.15134917467,-0.125992060595097
+4571,1.18,"Ideal","J","SI1","https://www.bluenile.com./diamond-details/LD09833175?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",5677.30255337623,-0.21674421800696
+4583,1.21,"Ideal","J","SI2","https://www.bluenile.com./diamond-details/LD09940758?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",5240.74766594626,-0.134110366968467
+4584,1.2,"Ideal","J","SI2","https://www.bluenile.com./diamond-details/LD00000549?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",5158.11802248376,-0.117999809228143
+4606,1.15,"Ideal","J","SI1","https://www.bluenile.com./diamond-details/LD09388949?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",5404.10926795542,-0.159799838324006
+4634,1.2,"Ideal","J","SI2","https://www.bluenile.com./diamond-details/LD09995246?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",5158.11802248376,-0.107151362630396
+4687,1.2,"Ideal","I","SI2","https://www.bluenile.com./diamond-details/LD07539847?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",5704.88663113161,-0.196530392332365
+4695,1.14,"Ideal","J","SI1","https://www.bluenile.com./diamond-details/LD09952739?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",5314.47620639303,-0.1239363442102
+4699,1.21,"Ideal","J","SI2","https://www.bluenile.com./diamond-details/LD10009872?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",5240.74766594626,-0.109114452374777
+4897,1.08,"Ideal","J","VVS2","https://www.bluenile.com./diamond-details/LD06163901?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",5456.62723782774,-0.108208104158271
+4978,1.2,"Ideal","I","SI2","https://www.bluenile.com./diamond-details/LD10044619?refTab=DIAMONDS&track=viewDiamondDetails&action=newTab",5704.88663113161,-0.136294907327533
