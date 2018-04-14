@@ -15,12 +15,12 @@ require(tibble)
 # 
 # Shape: Round
 # https://www.lumeradiamonds.com/diamond-education/round-diamonds
-# Caret: 0.85 - 1.5
+# Caret: 0.90 - 1.5
 # Color: J - D
 # Clarity: SI2 - FL
 # Depth: 59 - 63
 # Table: 53 - 58
-# Price: 0 - 5000
+# Price: 0 - 6500
 
 
 
