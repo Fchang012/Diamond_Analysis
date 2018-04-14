@@ -13,7 +13,7 @@ setwd(this.dir)
 FinalDF <- read.csv("./Clean_Data/Diamond_Data.csv", sep = rawToChar(as.raw(127)))
 
 # Reorder Factor Levels
-FinalDF$Cut <- factor(FinalDF$Cut, levels(FinalDF$Cut)[c(1,5,2,4,6,3)])
+FinalDF$Cut <- factor(FinalDF$Cut, levels(FinalDF$Cut)[c(4,1,3,5,2)])
 FinalDF$Clarity <- factor(FinalDF$Clarity, levels(FinalDF$Clarity)[c(1,6,7,4,5,2,3)])
 
 
@@ -90,7 +90,9 @@ FinalDF <- cbind(FinalDF, Residual=resid(fit))
 focus <- FinalDF[FinalDF$Residual <= quantile(FinalDF$Residual, 0.1), ]
 
 # Only ideal + cuts
-focus <-focus[(focus$CutAstor.Ideal == 1 | focus$CutIdeal == 1), ]
+focus <-focus[(focus$CutTrue.Hearts == 1 | focus$CutExcellent == 1 | focus$CutIdeal == 1 | focus$CutVery.Good == 1), ]
+
+#Only color i and above
 
 # Plot of Top 1%
 ggplot(focus,
