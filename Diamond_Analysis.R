@@ -87,7 +87,7 @@ FinalDF <- cbind(FinalDF, Forecast=exp(predict(fit)))
 FinalDF <- cbind(FinalDF, Residual=resid(fit))
 
 # Top 25% with least residuals
-focus <- FinalDF[FinalDF$Residual <= quantile(FinalDF$Residual, 0.25), ]
+focus <- FinalDF[FinalDF$Residual <= quantile(FinalDF$Residual, 0.5), ]
 
 # Only very good + cuts
 focus <- focus[(focus$CutTrue.Hearts == 1 | focus$CutExcellent == 1 | focus$CutIdeal == 1 | focus$CutVery.Good == 1), ]
@@ -124,4 +124,4 @@ ggplot(focus,
   theme_bw()
 
 # Write to table to explore
-write.table(focus[,c(1:6,27:28)], "./Output/focus.csv", sep = ",", row.names = FALSE)
+write.table(focus[,c(1:6,27:26)], "./Output/focus.csv", sep = ",", row.names = FALSE)
