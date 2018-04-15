@@ -86,13 +86,17 @@ ggplot(FinalDF, aes(x=Carat,
 FinalDF <- cbind(FinalDF, Forecast=exp(predict(fit)))
 FinalDF <- cbind(FinalDF, Residual=resid(fit))
 
-# Top 1% with least residuals
-focus <- FinalDF[FinalDF$Residual <= quantile(FinalDF$Residual, 0.1), ]
+# Top 25% with least residuals
+focus <- FinalDF[FinalDF$Residual <= quantile(FinalDF$Residual, 0.25), ]
 
-# Only ideal + cuts
-focus <-focus[(focus$CutTrue.Hearts == 1 | focus$CutExcellent == 1 | focus$CutIdeal == 1 | focus$CutVery.Good == 1), ]
+# Only very good + cuts
+focus <- focus[(focus$CutTrue.Hearts == 1 | focus$CutExcellent == 1 | focus$CutIdeal == 1 | focus$CutVery.Good == 1), ]
 
 #Only color i and above
+focus <- focus[(focus$ColorJ == 0),]
+
+#Only VS2 Clarity and above
+focus <- focus[(focus$ClaritySI1 == 0 & focus$ClaritySI2 == 0),]
 
 # Plot of Top 1%
 ggplot(focus,
